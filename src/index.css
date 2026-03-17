@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/space-grotesk";
+
+@theme {
+  --color-primary-50: #f4f3ff;
+  --color-primary-100: #eae8ff;
+  --color-primary-200: #d7d5ff;
+  --color-primary-300: #bab3ff;
+  --color-primary-400: #9988fd;
+  --color-primary-500: #7a5cfa;
+  --color-primary-600: #6535f2;
+  --color-primary-700: #5724dd;
+  --color-primary-800: #481dba;
+  --color-primary-900: #3c1a98;
+  --color-primary-950: #230e67;
+
+  --color-accent-50: #f3fce9;
+  --color-accent-100: #e3f7d0;
+  --color-accent-200: #caefa7;
+  --color-accent-300: #a7e373;
+  --color-accent-400: #93d85a;
+  --color-accent-500: #68b929;
+  --color-accent-600: #4e931d;
+  --color-accent-700: #3c711a;
+  --color-accent-800: #335a1a;
+  --color-accent-900: #2d4c1b;
+  --color-accent-950: #142a09;
+
+  --color-dark: #333;
+
+  --font-dm-sans: "DM Sans Variable", sans-serif;
+  --font-space-grotesk: "Space Grotesk Variable", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-dark min-h-screen bg-primary-50 font-space-grotesk;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-space-grotesk;
+}
+
+p {
+  @apply font-dm-sans;
+}
+
+.wrapper {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 130vw));
+  }
+}
+
+.item {
+  width: 100px;
+  position: absolute;
+  left: 100%;
+  animation-name: scrollLeft;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
