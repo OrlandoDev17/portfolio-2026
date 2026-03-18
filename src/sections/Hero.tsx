@@ -2,26 +2,44 @@
 import { Section } from "@/components/common/Section";
 import { Button } from "@/components/common/Button";
 import { Icon } from "@iconify/react";
-
+// Motion
+import { motion } from "motion/react";
+import {
+  containerVariants,
+  fadeLeft,
+  fadeRight,
+  fadeUp,
+} from "@/lib/animations";
 // Constantes
 import { SOCIAL_ITEMS, BRAND_LIST } from "@/lib/constants";
 
 export function HeroSection() {
   return (
     <Section className="mt-6" id="#">
-      <div className="flex items-center justify-between">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        className="flex items-center justify-between"
+      >
         <div className="flex flex-col gap-3">
-          <h1 className="text-7xl font-black">
+          <motion.h1 variants={fadeRight} className="text-7xl font-black">
             Hola, Soy <br />{" "}
             <span className="text-primary-500">Orlando López</span>
-          </h1>
-          <h2 className="text-4xl text-accent-400 font-semibold">
+          </motion.h1>
+          <motion.h2
+            variants={fadeRight}
+            className="text-4xl text-accent-400 font-semibold"
+          >
             Desarrollador Frontend
-          </h2>
-          <h2 className="text-2xl text-primary-500 font-bold">
+          </motion.h2>
+          <motion.h2
+            variants={fadeRight}
+            className="text-2xl text-primary-500 font-bold"
+          >
             Técnico Superior Universitario en Informática
-          </h2>
-          <p className="text-lg max-w-lg ">
+          </motion.h2>
+          <motion.p variants={fadeRight} className="text-lg max-w-lg ">
             Desarrollador Frontend{" "}
             <span className="text-primary-500 font-medium">
               apasionado por construir
@@ -36,18 +54,28 @@ export function HeroSection() {
               robustas, intuitivas y eficientes
             </span>{" "}
             que generan un impacto real en la operatividad de los usuarios.
-          </p>
-          <aside className="flex items-center gap-4 mt-4">
-            <Button>
-              <Icon icon="tabler:folder" /> Ver Proyectos
-            </Button>
-            <Button variant="secondary">
-              <Icon icon="tabler:download" /> Descargar CV
-            </Button>
-          </aside>
-          <ul className="flex items-center gap-4 mt-4">
-            {SOCIAL_ITEMS.map(({ id, icon, href }) => (
-              <li key={id}>
+          </motion.p>
+          <motion.aside
+            variants={containerVariants}
+            className="flex items-center gap-4 mt-4"
+          >
+            <motion.div variants={fadeUp} aria-hidden="true">
+              <Button>
+                <Icon icon="tabler:folder" /> Ver Proyectos
+              </Button>
+            </motion.div>
+            <motion.div variants={fadeUp} aria-hidden="true">
+              <Button variant="secondary">
+                <Icon icon="tabler:download" /> Descargar CV
+              </Button>
+            </motion.div>
+          </motion.aside>
+          <motion.ul
+            variants={containerVariants}
+            className="flex items-center gap-4 mt-4"
+          >
+            {SOCIAL_ITEMS.map(({ id, icon, href, animation }) => (
+              <motion.li variants={animation} key={id}>
                 <a
                   className="flex items-center justify-center"
                   href={href}
@@ -58,14 +86,14 @@ export function HeroSection() {
                     icon={icon}
                   />
                 </a>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </div>
-        <picture>
+        <motion.picture variants={fadeLeft}>
           <img src="/avatar.webp" alt="Avatar de Orlando López" />
-        </picture>
-      </div>
+        </motion.picture>
+      </motion.div>
       <ul className="flex items-center justify-between mt-8 h-30 max-w-7xl  mx-auto w-full relative wrapper">
         {BRAND_LIST.map(({ name, icon }, index) => (
           <li

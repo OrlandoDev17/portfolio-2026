@@ -4,6 +4,8 @@ import { useState } from "react";
 import { NAV_ITEMS } from "@/lib/constants";
 // Motion
 import { AnimatePresence, motion } from "motion/react";
+import { containerVariants, fadeDown, fadeRight } from "@/lib/animations";
+// Componentes
 import { Button } from "@/components/common/Button";
 import { Icon } from "@iconify/react";
 
@@ -17,15 +19,25 @@ export function Header() {
   };
 
   return (
-    <header className="h-20 flex flex-col items-center justify-center">
+    <motion.header
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="h-20 flex flex-col items-center justify-center"
+    >
       <div className="flex items-center justify-between max-w-7xl mx-auto w-full">
-        <picture>
+        <motion.picture variants={fadeRight}>
           <img className="w-16" src="/logo.svg" alt="Logo de Orlando López" />
-        </picture>
+        </motion.picture>
         <nav>
-          <ul className="flex items-center gap-2">
+          <motion.ul
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex items-center gap-2"
+          >
             {NAV_ITEMS.map(({ label, href }, index) => (
-              <li key={label + index}>
+              <motion.li variants={fadeDown} key={label + index}>
                 <a
                   onMouseEnter={() => setHoveredTab(label)}
                   onMouseLeave={() => setHoveredTab(null)}
@@ -38,7 +50,7 @@ export function Header() {
                     {hoveredTab === label && (
                       <motion.span
                         layoutId="nav-underline"
-                        className="absolute -bottom-1.5 left-0 right-0 h-1 bg-primary-500 rounded-full pointer-en"
+                        className="absolute -bottom-1.5 left-0 right-0 h-1 bg-primary-500 rounded-full"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -51,17 +63,17 @@ export function Header() {
                     )}
                   </AnimatePresence>
                 </a>
-              </li>
+              </motion.li>
             ))}
-            <li className="pl-2">
+            <motion.li variants={fadeDown} className="pl-2">
               <Button variant="dark">
                 <Icon icon="tabler:message-plus" width={20} height={20} />{" "}
                 ¡Hablemos!
               </Button>
-            </li>
-          </ul>
+            </motion.li>
+          </motion.ul>
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 }

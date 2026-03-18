@@ -43,7 +43,7 @@ html {
 }
 
 body {
-  @apply text-dark min-h-screen bg-primary-50 font-space-grotesk;
+  @apply text-dark min-h-screen bg-white font-space-grotesk;
 }
 
 h1,
@@ -77,7 +77,7 @@ p {
 }
 
 .item {
-  width: 100px;
+  width: 150px;
   position: absolute;
   left: 100%;
   animation-name: scrollLeft;
