@@ -20,6 +20,7 @@ export function HeroSection() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true }}
         className="flex items-center justify-between"
       >
         <div className="flex flex-col gap-3">
@@ -60,7 +61,7 @@ export function HeroSection() {
             className="flex items-center gap-4 mt-4"
           >
             <motion.div variants={fadeUp} aria-hidden="true">
-              <Button>
+              <Button href="#projects">
                 <Icon icon="tabler:folder" /> Ver Proyectos
               </Button>
             </motion.div>
