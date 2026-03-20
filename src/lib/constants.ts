@@ -1,5 +1,10 @@
 // Tipos
-import type { NavItem, SocialLink } from "./types";
+import type {
+  NavItem,
+  SocialLink,
+  ExperienceItem,
+  WorkflowStep,
+} from "./types";
 // Animaciones
 import { fadeLeft, fadeRight, fadeUp } from "./animations";
 
@@ -14,6 +19,11 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Experiencia",
     href: "#experience",
     icon: "tabler:briefcase",
+  },
+  {
+    label: "Workflow",
+    href: "#workflow",
+    icon: "tabler:workflow",
   },
   {
     label: "Habilidades",
@@ -94,8 +104,6 @@ export const BRAND_LIST = [
     icon: "simple-icons:figma",
   },
 ];
-
-import type { ExperienceItem } from "./types";
 
 export const EXPERIENCE_LIST: ExperienceItem[] = [
   {
@@ -242,5 +250,45 @@ export const EXPERIENCE_LIST: ExperienceItem[] = [
       "Dashboard de Productividad con IA: Gráficas de rendimiento para detectar cuellos de botella.",
     ],
     logo: "/images/worklyst-logo.svg",
+  },
+];
+
+export const WORKFLOW_STEPS: WorkflowStep[] = [
+  {
+    id: "discovery",
+    title: "Descubrimiento y Análisis",
+    description:
+      "Entiendo el problema del negocio antes de una línea de código. Mi enfoque es el descubrimiento de la necesidad del cliente y la definición de objetivos claros. ¿Qué problema real estamos resolviendo y cómo sabremos que lo logramos?",
+    icon: "tabler:search",
+    span: 2,
+    bgColor: "bg-blue-500",
+    textColor: "text-white",
+  },
+  {
+    id: "design",
+    title: "Diseño de Arquitectura y UX/UI",
+    description:
+      "Diseño la solución integral: desde el árbol de componentes reutilizables, la arquitectura de carpetas, el flujo de datos del backend (si aplica) hasta el prototipo UX/UI. Es el 'plano de construcción' que asegura escalabilidad y mantenibilidad.",
+    icon: "tabler:palette",
+    bgColor: "bg-purple-500",
+    textColor: "text-white",
+  },
+  {
+    id: "development",
+    title: "Desarrollo y Ejecución",
+    description:
+      "Construcción robusta y tipada. Implemento la solución con las tecnologías más adecuadas (Vite, React, n8n) según el proyecto. No solo escribo código, diseño un sistema de diseño de componentes listos para el futuro.",
+    icon: "tabler:code",
+    bgColor: "bg-green-500",
+    textColor: "text-white",
+  },
+  {
+    id: "deployment",
+    title: "Calidad y Despliegue",
+    description:
+      "Garantía de calidad y performance. Aseguro el estándar con auditorías de Lighthouse al 90% y despliegue automatizado con pipelines CI/CD. Es el momento de poner la solución en producción, lista para el tráfico real.",
+    icon: "tabler:checklist",
+    bgColor: "bg-yellow-500",
+    textColor: "text-white",
   },
 ];

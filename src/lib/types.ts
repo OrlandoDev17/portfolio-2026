@@ -43,3 +43,14 @@ export interface ExperienceItem {
   };
   logo?: string;
 }
+
+export interface WorkflowStep {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  extra?: React.ReactNode;
+  span?: number;
+  bgColor?: string;
+  textColor?: string;
+}
