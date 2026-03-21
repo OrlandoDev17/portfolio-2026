@@ -45,12 +45,14 @@ export interface ExperienceItem {
 }
 
 export interface WorkflowStep {
-  id: string;
+  step: number;
   title: string;
   description: string;
+  className?: string;
   icon: string;
-  extra?: React.ReactNode;
-  span?: number;
-  bgColor?: string;
-  textColor?: string;
+  iconClasses?: string;
+  color: "primary" | "violet" | "lime" | "orange" | "blue";
+  layout: "vertical" | "horizontal";
+  extraContent?: React.ReactNode;
+  tags?: string[];
 }
