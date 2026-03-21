@@ -23,17 +23,20 @@ export function Section({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="max-w-7xl mx-auto w-full flex flex-col gap-4"
+        className="max-w-5xl 2xl:max-w-7xl mx-auto w-full flex flex-col gap-4"
       >
         {title || subtitle ? (
           <header className="flex flex-col gap-2 w-fit">
             <motion.h2
               variants={fadeRight}
-              className="text-4xl text-primary-500 font-bold"
+              className="text-3xl 2xl:text-4xl text-primary-500 font-bold"
             >
               {title}
             </motion.h2>
-            <motion.p variants={fadeRight} className="text-lg text-gray-400">
+            <motion.p
+              variants={fadeRight}
+              className="2xl:text-lg text-gray-400"
+            >
               {subtitle}
             </motion.p>
             <motion.span

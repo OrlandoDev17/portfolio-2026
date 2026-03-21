@@ -46,14 +46,14 @@ export function ExperienceCard({
         </header>
 
         {/* Main Content Area */}
-        <section className="lg:w-3/5 p-8 lg:p-12 flex flex-col justify-center gap-6">
+        <section className="lg:w-3/5 p-4 2xl:p-12  flex flex-col justify-center gap-4 2xl:gap-6">
           <header className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-1">
-              <h3 className="text-3xl lg:text-4xl font-black text-dark tracking-tighter leading-tight">
+              <h3 className="text-2xl 2xl:text-4xl font-black text-dark tracking-tighter leading-tight">
                 {experience.title}
               </h3>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <p className="text-primary-600 font-bold text-base tracking-tight">
+                <p className="text-primary-600 font-bold text-sm 2xl:text-base tracking-tight">
                   {experience.company} — {experience.role}
                 </p>
                 <time className="text-[10px] font-black uppercase tracking-widest text-dark/30 bg-dark/5 px-2 py-0.5 rounded-md">
@@ -70,7 +70,7 @@ export function ExperienceCard({
                 className="p-3 bg-dark/5 rounded-2xl hover:bg-dark text-dark/40 hover:text-white transition-all duration-300"
                 title="Ver código en GitHub"
               >
-                <Icon icon="lucide:github" className="w-6 h-6" />
+                <Icon icon="lucide:github" className="size-6" />
               </a>
               <a
                 href={experience.links.live}
@@ -84,7 +84,7 @@ export function ExperienceCard({
             </nav>
           </header>
 
-          <p className="text-lg text-dark/70 leading-relaxed font-medium">
+          <p className="2xl:text-lg text-dark/70 leading-relaxed font-medium">
             {experience.shortDesc}
           </p>
 

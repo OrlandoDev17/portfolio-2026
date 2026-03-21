@@ -8,7 +8,7 @@ import { WorkflowSection } from "./sections/Workflow";
 export default function App() {
   return (
     <>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4 2xl:gap-8">
         <Header />
         <main className="flex flex-col gap-16">
           <HeroSection />

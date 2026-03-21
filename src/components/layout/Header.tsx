@@ -23,11 +23,15 @@ export function Header() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="h-20 flex flex-col items-center justify-center"
+      className="h-16 2xl:h-20 flex flex-col items-center justify-center"
     >
-      <div className="flex items-center justify-between max-w-7xl mx-auto w-full">
+      <div className="flex items-center justify-between max-w-5xl 2xl:max-w-7xl mx-auto w-full">
         <motion.picture variants={fadeRight}>
-          <img className="w-16" src="/logo.svg" alt="Logo de Orlando López" />
+          <img
+            className="w-12 2xl:w-16"
+            src="/logo.svg"
+            alt="Logo de Orlando López"
+          />
         </motion.picture>
         <nav>
           <motion.ul
@@ -42,7 +46,7 @@ export function Header() {
                   onMouseEnter={() => setHoveredTab(label)}
                   onMouseLeave={() => setHoveredTab(null)}
                   onClick={() => handleSetActiveTab(href)}
-                  className={`text-lg relative py-2 px-3 ${activeTab === href ? "text-primary-500 font-medium" : ""}`}
+                  className={`2xl:text-lg relative py-2 px-3 ${activeTab === href ? "text-primary-500 font-medium" : ""}`}
                   href={href}
                 >
                   {label}

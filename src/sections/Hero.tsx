@@ -15,7 +15,7 @@ import { SOCIAL_ITEMS, BRAND_LIST } from "@/lib/constants";
 
 export function HeroSection() {
   return (
-    <Section className="mt-6" id="#">
+    <Section className="2xl:mt-6" id="#">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -24,23 +24,29 @@ export function HeroSection() {
         className="flex items-center justify-between"
       >
         <div className="flex flex-col gap-3">
-          <motion.h1 variants={fadeRight} className="text-7xl font-black">
+          <motion.h1
+            variants={fadeRight}
+            className="text-6xl 2xl:text-7xl font-black"
+          >
             Hola, Soy <br />{" "}
             <span className="text-primary-500">Orlando López</span>
           </motion.h1>
           <motion.h2
             variants={fadeRight}
-            className="text-4xl text-accent-400 font-semibold"
+            className="text-3xl 2xl:text-4xl text-accent-400 font-semibold"
           >
             Desarrollador Frontend
           </motion.h2>
           <motion.h2
             variants={fadeRight}
-            className="text-2xl text-primary-500 font-bold"
+            className="text-xl 2xl:text-2xl text-primary-500 font-bold"
           >
             Técnico Superior Universitario en Informática
           </motion.h2>
-          <motion.p variants={fadeRight} className="text-lg max-w-lg ">
+          <motion.p
+            variants={fadeRight}
+            className="text-sm 2xl:text-lg max-w-lg "
+          >
             Desarrollador Frontend{" "}
             <span className="text-primary-500 font-medium">
               apasionado por construir
@@ -91,11 +97,18 @@ export function HeroSection() {
             ))}
           </motion.ul>
         </div>
-        <motion.picture variants={fadeLeft}>
-          <img src="/avatar.webp" alt="Avatar de Orlando López" />
+        <motion.picture
+          className="flex items-end justify-end"
+          variants={fadeLeft}
+        >
+          <img
+            className="w-[80%] 2xl:w-full"
+            src="/avatar.webp"
+            alt="Avatar de Orlando López"
+          />
         </motion.picture>
       </motion.div>
-      <ul className="flex items-center justify-between mt-8 h-30 max-w-7xl  mx-auto w-full relative wrapper">
+      <ul className="flex items-center justify-between mt-4 2xl:mt-8 h-20 2xl:h-30 max-w-5xl 2xl:max-w-7xl  mx-auto w-full relative wrapper">
         {BRAND_LIST.map(({ name, icon }, index) => (
           <li
             className="item"
