@@ -51,7 +51,7 @@ export interface WorkflowStep {
   className?: string;
   icon: string;
   iconClasses?: string;
-  color: "primary" | "violet" | "lime" | "orange" | "blue";
+  color: "primary" | "yellow" | "lime" | "orange" | "blue";
   layout: "vertical" | "horizontal";
   extraContent?: React.ReactNode;
   tags?: string[];
