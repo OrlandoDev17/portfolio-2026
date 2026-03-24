@@ -509,3 +509,6 @@ export const STATS_LIST: StatItem[] = [
     boxShadow: "rgba(122, 92, 250, 0.7)",
   },
 ];
+
+// Reemplaza esto con tu Access Key de Web3Forms
+export const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";

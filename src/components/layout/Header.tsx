@@ -8,11 +8,13 @@ import { containerVariants, fadeDown, fadeRight } from "@/lib/animations";
 // Componentes
 import { Button } from "@/components/common/Button";
 import { Icon } from "@iconify/react";
+import { ContactModal } from "../contact/ContactModal";
 
 export function Header() {
   // Estados
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<string | null>("#");
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const handleSetActiveTab = (href: string) => {
     setActiveTab(href);
@@ -70,7 +72,10 @@ export function Header() {
               </motion.li>
             ))}
             <motion.li variants={fadeDown} className="pl-2">
-              <Button variant="dark">
+              <Button
+                onClick={() => setIsContactModalOpen(true)}
+                variant="dark"
+              >
                 <Icon icon="tabler:message-plus" width={20} height={20} />{" "}
                 ¡Hablemos!
               </Button>
@@ -78,6 +83,11 @@ export function Header() {
           </motion.ul>
         </nav>
       </div>
+
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </motion.header>
   );
 }

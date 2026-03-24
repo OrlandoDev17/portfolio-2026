@@ -5,6 +5,8 @@ interface ButtonProps {
   variant?: "primary" | "secondary" | "dark";
   size?: "sm" | "md" | "lg";
   className?: string;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 export function Button({
@@ -14,9 +16,15 @@ export function Button({
   variant = "primary",
   size = "md",
   className = "",
+  disabled = false,
+  type = "button",
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 rounded-lg transition-all duration-300 font-bold cursor-pointer hover:-translate-y-1 active:scale-95";
+    "inline-flex items-center justify-center gap-2 rounded-lg transition-all duration-300 font-bold active:scale-95";
+
+  const hoverStyles = disabled
+    ? "cursor-not-allowed opacity-50"
+    : "cursor-pointer hover:-translate-y-1";
 
   const variants = {
     primary:
@@ -32,9 +40,9 @@ export function Button({
     lg: "px-8 py-3.5 text-xl",
   };
 
-  const combinedClasses = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+  const combinedClasses = `${baseStyles} ${hoverStyles} ${variants[variant]} ${sizes[size]} ${className}`;
 
-  if (href) {
+  if (href && !disabled) {
     return (
       <a href={href} className={combinedClasses}>
         {children}
@@ -43,7 +51,12 @@ export function Button({
   }
 
   return (
-    <button onClick={onClick} className={combinedClasses} type="button">
+    <button
+      onClick={onClick}
+      className={combinedClasses}
+      type={type}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
