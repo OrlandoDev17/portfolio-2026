@@ -68,3 +68,13 @@ export interface SkillItem {
   shadow: string;
   variants: Variants;
 }
+
+export interface StatItem {
+  label: string;
+  value?: number;
+  icon?: string;
+  prefix?: string;
+  color: string;
+  labelColor?: string;
+  boxShadow: string;
+}

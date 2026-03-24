@@ -5,6 +5,7 @@ import type {
   ExperienceItem,
   WorkflowStep,
   SkillItem,
+  StatItem,
 } from "./types";
 // Animaciones
 import { fadeLeft, fadeRight, fadeUp } from "./animations";
@@ -472,5 +473,39 @@ export const SKILLS_LIST: SkillItem[] = [
     color: "bg-linear-to-br from-blue-200 to-blue-500 text-blue-700",
     shadow: "rgba(59, 130, 246, 0.7)",
     variants: fadeLeft,
+  },
+];
+
+export const STATS_LIST: StatItem[] = [
+  {
+    label: "Años Exp",
+    value: 3,
+    prefix: "+",
+    color: "bg-white text-primary-500",
+    labelColor: "text-gray-600",
+    boxShadow: "rgba(122, 92, 250, 0.7)",
+  },
+  {
+    label: "Proyectos",
+    value: 15,
+    prefix: "+",
+    color: "bg-accent-300 text-white",
+    labelColor: "text-white",
+    boxShadow: "rgba(104, 185, 41, 0.7)",
+  },
+  {
+    label: "Calidad",
+    value: 100,
+    prefix: "%",
+    color: "bg-orange-500/10 text-orange-500",
+    labelColor: "text-dark",
+    boxShadow: "rgba(249, 115, 22, 0.7)",
+  },
+  {
+    label: "Innovación",
+    icon: "tabler:bulb",
+    color: "bg-primary-500 text-white",
+    labelColor: "text-white",
+    boxShadow: "rgba(122, 92, 250, 0.7)",
   },
 ];

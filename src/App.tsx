@@ -5,6 +5,7 @@ import { HeroSection } from "./sections/Hero";
 import { ExperienceSection } from "./sections/Experience";
 import { WorkflowSection } from "./sections/Workflow";
 import { SkillsSection } from "./sections/Skills";
+import { AboutSection } from "./sections/About";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <ExperienceSection />
           <WorkflowSection />
           <SkillsSection />
+          <AboutSection />
         </main>
       </div>
     </>
