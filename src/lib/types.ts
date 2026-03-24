@@ -1,4 +1,5 @@
 import type { Variants } from "motion";
+import type { ComponentType, SVGProps } from "react";
 
 export interface NavItem {
   label: string;
@@ -53,6 +54,17 @@ export interface WorkflowStep {
   iconClasses?: string;
   color: "primary" | "yellow" | "lime" | "orange" | "blue";
   layout: "vertical" | "horizontal";
-  extraContent?: React.ReactNode;
-  tags?: string[];
+}
+
+export interface SkillItem {
+  title: string;
+  description: string;
+  brands: {
+    icon: string;
+    name: string;
+  }[];
+  color: string;
+  bigBrand: ComponentType<SVGProps<SVGSVGElement>>;
+  shadow: string;
+  variants: Variants;
 }

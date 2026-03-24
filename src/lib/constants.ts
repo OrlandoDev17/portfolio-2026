@@ -4,9 +4,17 @@ import type {
   SocialLink,
   ExperienceItem,
   WorkflowStep,
+  SkillItem,
 } from "./types";
 // Animaciones
 import { fadeLeft, fadeRight, fadeUp } from "./animations";
+// Iconos
+import {
+  Git,
+  Nodejs,
+  ReactDark,
+  TypeScript,
+} from "@ridemountainpig/svgl-react";
 
 // Constantes
 export const NAV_ITEMS: NavItem[] = [
@@ -257,7 +265,8 @@ export const WORKFLOW_STEPS: WorkflowStep[] = [
   {
     step: 1,
     title: "Descubrimiento",
-    description: "Analizo el problema de negocio y defino objetivos claros antes de programar.",
+    description:
+      "Analizo el problema de negocio y defino objetivos claros antes de programar.",
     icon: "tabler:search",
     color: "lime",
     className: "lg:col-span-1 lg:row-span-1",
@@ -266,7 +275,8 @@ export const WORKFLOW_STEPS: WorkflowStep[] = [
   {
     step: 2,
     title: "Documentación",
-    description: "Organizo requisitos técnicos y estratégicos para asegurar una base sólida.",
+    description:
+      "Organizo requisitos técnicos y estratégicos para asegurar una base sólida.",
     icon: "tabler:file-description",
     color: "blue",
     className: "lg:col-span-1 lg:row-span-1",
@@ -275,7 +285,8 @@ export const WORKFLOW_STEPS: WorkflowStep[] = [
   {
     step: 3,
     title: "Diseño y UX",
-    description: "Diseño la arquitectura de datos, flujos lógicos y prototipos de alta fidelidad.",
+    description:
+      "Diseño la arquitectura de datos, flujos lógicos y prototipos de alta fidelidad.",
     icon: "tabler:brand-figma",
     color: "primary",
     className: "lg:col-span-1 lg:row-span-1",
@@ -284,7 +295,8 @@ export const WORKFLOW_STEPS: WorkflowStep[] = [
   {
     step: 4,
     title: "Desarrollo",
-    description: "Escribo código limpio, resiliente y escalable usando las mejores prácticas.",
+    description:
+      "Escribo código limpio, resiliente y escalable usando las mejores prácticas.",
     icon: "tabler:user-code",
     color: "lime",
     className: "lg:col-span-1 lg:row-span-1",
@@ -293,7 +305,8 @@ export const WORKFLOW_STEPS: WorkflowStep[] = [
   {
     step: 5,
     title: "Calidad y QA",
-    description: "Auditorías de rendimiento y accesibilidad para garantizar una UX impecable.",
+    description:
+      "Auditorías de rendimiento y accesibilidad para garantizar una UX impecable.",
     icon: "tabler:test-pipe",
     color: "orange",
     className: "lg:col-span-1 lg:row-span-1",
@@ -302,10 +315,162 @@ export const WORKFLOW_STEPS: WorkflowStep[] = [
   {
     step: 6,
     title: "Lanzamiento",
-    description: "Despliegue automatizado con pipelines CI/CD y monitoreo constante post-lanzamiento.",
+    description:
+      "Despliegue automatizado con pipelines CI/CD y monitoreo constante post-lanzamiento.",
     icon: "tabler:rocket",
     color: "blue",
     className: "lg:col-span-1 lg:row-span-1",
     layout: "vertical",
+  },
+];
+
+export const SKILLS_LIST: SkillItem[] = [
+  {
+    title: "Desarrollo Frontend",
+    description:
+      "Desarrollo interfaces modernas, rápidas y responsivas, enfocadas en la experiencia de usuario",
+    brands: [
+      {
+        icon: "simple-icons:nextdotjs",
+        name: "Next.js",
+      },
+      {
+        icon: "simple-icons:react",
+        name: "React",
+      },
+      {
+        icon: "simple-icons:tailwindcss",
+        name: "Tailwind",
+      },
+      {
+        icon: "simple-icons:tanstack",
+        name: "TanStack",
+      },
+      {
+        icon: "simple-icons:astro",
+        name: "Astro",
+      },
+      {
+        icon: "simple-icons:typescript",
+        name: "TypeScript",
+      },
+      {
+        icon: "simple-icons:framer",
+        name: "Motion",
+      },
+      {
+        icon: "simple-icons:vercel",
+        name: "Vercel",
+      },
+    ],
+    bigBrand: ReactDark,
+    color: "bg-linear-to-br from-primary-200 to-primary-500 text-primary-700",
+    shadow: "rgba(122, 92, 250, 0.7)",
+    variants: fadeRight,
+  },
+  {
+    title: "Desarrollo Backend",
+    description:
+      "Construyo sistemas escalables y seguros, integrando APIs y Bases de datos eficientes",
+    brands: [
+      {
+        icon: "simple-icons:nodedotjs",
+        name: "Node.js",
+      },
+      {
+        icon: "simple-icons:express",
+        name: "Express",
+      },
+      {
+        icon: "simple-icons:supabase",
+        name: "Supabase",
+      },
+      {
+        icon: "simple-icons:postgresql",
+        name: "PostgreSQL",
+      },
+      {
+        icon: "simple-icons:render",
+        name: "Render",
+      },
+      {
+        icon: "simple-icons:railway",
+        name: "Railway",
+      },
+    ],
+    bigBrand: Nodejs,
+    color: "bg-linear-to-br from-accent-200 to-accent-500 text-accent-700",
+    shadow: "rgba(104, 185, 41, 0.7)",
+    variants: fadeUp,
+  },
+  {
+    title: "Herramientas de Desarrollo",
+    description:
+      "Herramientas que optimizan el flujo de trabajo, desde el diseño de interfaces hasta el desarrollo.",
+    brands: [
+      {
+        icon: "material-symbols:antigravity",
+        name: "Antigravity",
+      },
+      {
+        icon: "simple-icons:figma",
+        name: "Figma",
+      },
+      {
+        icon: "simple-icons:bun",
+        name: "Bun",
+      },
+      {
+        icon: "ri:gemini-fill",
+        name: "Gemini",
+      },
+      {
+        icon: "simple-icons:n8n",
+        name: "n8n",
+      },
+      {
+        icon: "simple-icons:git",
+        name: "Git",
+      },
+    ],
+    bigBrand: Git,
+    color: "bg-linear-to-br from-orange-200 to-orange-500 text-orange-700",
+    shadow: "rgba(237, 137, 54, 0.7)",
+    variants: fadeUp,
+  },
+  {
+    title: "Conocimientos Clave",
+    description:
+      "Además de las tecnologías, manejo conceptos y prácticas que fortalecen la arquitectura y la experiencia del usuario.",
+    brands: [
+      {
+        icon: "tabler:api",
+        name: "REST API",
+      },
+      {
+        icon: "tabler:test-pipe",
+        name: "QA",
+      },
+      {
+        icon: "tabler:file-description",
+        name: "Docs",
+      },
+      {
+        icon: "tabler:stack-2",
+        name: "Agile",
+      },
+      {
+        icon: "tabler:route-2",
+        name: "Estado",
+      },
+      {
+        icon: "tabler:clipboard-list",
+        name: "Análisis",
+      },
+    ],
+    bigBrand: TypeScript,
+    color: "bg-linear-to-br from-blue-200 to-blue-500 text-blue-700",
+    shadow: "rgba(59, 130, 246, 0.7)",
+    variants: fadeLeft,
   },
 ];

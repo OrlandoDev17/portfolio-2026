@@ -8,6 +8,7 @@
         "@fontsource-variable/dm-sans": "^5.2.8",
         "@fontsource-variable/space-grotesk": "^5.2.10",
         "@iconify/react": "^6.0.2",
+        "@ridemountainpig/svgl-react": "^1.0.16",
         "@tailwindcss/vite": "^4.2.1",
         "motion": "^12.38.0",
         "react": "^19.2.4",
@@ -122,6 +123,8 @@
     "@oxc-project/runtime": ["@oxc-project/runtime@0.115.0", "", {}, "sha512-Rg8Wlt5dCbXhQnsXPrkOjL1DTSvXLgb2R/KYfnf1/K+R0k6UMLEmbQXPM+kwrWqSmWA2t0B1EtHy2/3zikQpvQ=="],
 
     "@oxc-project/types": ["@oxc-project/types@0.115.0", "", {}, "sha512-4n91DKnebUS4yjUHl2g3/b2T+IUdCfmoZGhmwsovZCDaJSs+QkVAM+0AqqTxHSsHfeiMuueT75cZaZcT/m0pSw=="],
+
+    "@ridemountainpig/svgl-react": ["@ridemountainpig/svgl-react@1.0.16", "", { "peerDependencies": { "react": "^16.8 || ^17.0 || ^18.0 || ^19.0", "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0" } }, "sha512-3vKZ3EejjrltqBW+po8dj2bz0qZcb11CaTTTWtp6zFozQwiDDWTXbVSlBl5W/ER41rt04mW23GYlV+g5Zd2r5w=="],
 
     "@rolldown/binding-android-arm64": ["@rolldown/binding-android-arm64@1.0.0-rc.9", "", { "os": "android", "cpu": "arm64" }, "sha512-lcJL0bN5hpgJfSIz/8PIf02irmyL43P+j1pTCfbD1DbLkmGRuFIA4DD3B3ZOvGqG0XiVvRznbKtN0COQVaKUTg=="],
 

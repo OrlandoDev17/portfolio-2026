@@ -4,6 +4,7 @@ import { Header } from "./components/layout/Header";
 import { HeroSection } from "./sections/Hero";
 import { ExperienceSection } from "./sections/Experience";
 import { WorkflowSection } from "./sections/Workflow";
+import { SkillsSection } from "./sections/Skills";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <HeroSection />
           <ExperienceSection />
           <WorkflowSection />
+          <SkillsSection />
         </main>
       </div>
     </>

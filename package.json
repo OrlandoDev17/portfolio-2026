@@ -13,6 +13,7 @@
     "@fontsource-variable/dm-sans": "^5.2.8",
     "@fontsource-variable/space-grotesk": "^5.2.10",
     "@iconify/react": "^6.0.2",
+    "@ridemountainpig/svgl-react": "^1.0.16",
     "@tailwindcss/vite": "^4.2.1",
     "motion": "^12.38.0",
     "react": "^19.2.4",
