@@ -21,7 +21,7 @@ export function HeroSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="flex items-center justify-between"
+        className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between"
       >
         <div className="flex flex-col gap-3">
           <motion.h1
@@ -98,11 +98,11 @@ export function HeroSection() {
           </motion.ul>
         </div>
         <motion.picture
-          className="flex items-end justify-end"
+          className="flex items-center justify-center lg:items-end lg:justify-end"
           variants={fadeLeft}
         >
           <img
-            className="w-[80%] 2xl:w-full"
+            className="w-full lg:w-[80%] 2xl:w-full"
             src="/avatar.webp"
             alt="Avatar de Orlando López"
           />

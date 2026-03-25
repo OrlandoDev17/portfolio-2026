@@ -6,21 +6,21 @@ import { containerVariants, fadeLeft, fadeRight } from "@/lib/animations";
 
 export function AboutSection() {
   return (
-    <Section className="">
-      <div className="flex flex-col gap-6 mb-12 bg-gray-100 p-12 rounded-3xl h-full">
+    <Section>
+      <div className="flex flex-col gap-6 mb-12 bg-gray-100 p-6 lg:p-12 rounded-3xl h-full">
         <header className="flex items-center gap-2">
           <h2 className="text-3xl 2xl:text-4xl text-primary-500 font-bold">
             Sobre Mí
           </h2>
           <span className="w-28 h-2 bg-accent-300 rounded-full"></span>
         </header>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-12 w-full h-full">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-12 w-full h-full">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex flex-col gap-5 max-w-[50%] [&>p]:text-pretty [&>p]:text-lg"
+            className="flex flex-col gap-5 lg:max-w-[50%] [&>p]:text-pretty [&>p]:text-lg"
           >
             <motion.p variants={fadeRight}>
               Mi enfoque parte de una premisa clara:{" "}
@@ -90,18 +90,18 @@ export function AboutSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex flex-row gap-4 items-center w-full max-w-[42%] ml-auto"
+            className="grid grid-cols-2 gap-4 items-center w-full lg:flex lg:flex-row lg:max-w-[42%] ml-auto"
           >
             <motion.div
               variants={fadeLeft}
-              className="flex flex-col gap-4 w-1/2"
+              className="flex flex-col gap-4 w-full"
             >
               <StatCard {...STATS_LIST[0]} />
               <StatCard {...STATS_LIST[2]} />
             </motion.div>
             <motion.div
               variants={fadeLeft}
-              className="flex flex-col gap-4 w-1/2 mt-16"
+              className="flex flex-col gap-4 w-full lg:mt-16"
             >
               <StatCard {...STATS_LIST[1]} />
               <StatCard {...STATS_LIST[3]} />

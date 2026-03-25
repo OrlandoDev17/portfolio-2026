@@ -31,7 +31,7 @@ function ExperienceIntro({ description }: { description: string }) {
         </span>
         <div className="h-px bg-primary-500/20 flex-1" />
       </header>
-      <p className="text-2xl text-dark/80 leading-relaxed font-semibold tracking-tight text-center max-w-3xl mx-auto">
+      <p className="text-xl lg:text-2xl text-dark/80 leading-relaxed font-semibold tracking-tight text-center max-w-3xl mx-auto">
         {description}
       </p>
     </section>
@@ -139,10 +139,10 @@ function ExperienceChallenges({
 
 function ExperienceImpact({ items }: { items: string[] }) {
   return (
-    <section className="relative p-10 bg-dark/95 rounded-[2.5rem] overflow-hidden group">
+    <section className="relative p-6 lg:p-10 bg-dark/95 rounded-[2.5rem] overflow-hidden group">
       {/* Chart Background Sample */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute bottom-0 left-0 right-0 h-40 flex items-end justify-between px-10 gap-2">
+        <div className="absolute bottom-0 left-0 right-0 h-40 flex items-end justify-between px-6 lg:px-10 gap-2">
           {[40, 70, 45, 90, 65, 80, 55, 95].map((h, i) => (
             <motion.div
               key={i}
@@ -193,7 +193,7 @@ function ExperienceImpact({ items }: { items: string[] }) {
 
 function ExperienceRoadmap({ items }: { items: string[] }) {
   return (
-    <section className="relative p-10 bg-primary-500/5 rounded-[2.5rem] border border-primary-500/10 overflow-hidden group">
+    <section className="relative p-6 lg:p-10 bg-primary-500/5 rounded-[2.5rem] border border-primary-500/10 overflow-hidden group">
       {/* Efecto Glassmorphism / Blur BG */}
       <div className="absolute top-0 right-0 w-40 h-40 bg-primary-500/20 blur-[80px] rounded-full -mr-20 -mt-20 group-hover:bg-primary-500/40 transition-colors duration-700" />
 
