@@ -65,11 +65,14 @@ export function SkillCard({
         <ul className="grid grid-cols-3 gap-y-6 gap-x-2">
           {brands.map((brand) => (
             <li
-              className="flex flex-col items-center justify-center text-white"
+              className="group relative flex flex-col items-center justify-center text-white cursor-default"
               key={brand.name}
             >
               <Icon icon={brand.icon} className="size-12" />
               <span className="text-center font-medium">{brand.name}</span>
+              <span className="absolute -top-8 px-2 py-1 text-xs bg-dark text-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                {brand.name}
+              </span>
             </li>
           ))}
         </ul>

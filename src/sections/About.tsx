@@ -6,7 +6,7 @@ import { containerVariants, fadeLeft, fadeRight } from "@/lib/animations";
 
 export function AboutSection() {
   return (
-    <Section>
+    <Section id="about">
       <div className="flex flex-col gap-6 mb-12 bg-gray-100 p-6 lg:p-12 rounded-3xl h-full">
         <header className="flex items-center gap-2">
           <h2 className="text-3xl 2xl:text-4xl text-primary-500 font-bold">

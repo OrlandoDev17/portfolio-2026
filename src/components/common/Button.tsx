@@ -7,6 +7,7 @@ interface ButtonProps {
   className?: string;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
+  customProps?: React.AnchorHTMLAttributes<HTMLAnchorElement>;
 }
 
 export function Button({
@@ -18,6 +19,7 @@ export function Button({
   className = "",
   disabled = false,
   type = "button",
+  customProps,
 }: ButtonProps) {
   const baseStyles =
     "inline-flex items-center justify-center gap-2 rounded-lg transition-all duration-300 font-bold active:scale-95";
@@ -44,7 +46,7 @@ export function Button({
 
   if (href && !disabled) {
     return (
-      <a href={href} className={combinedClasses}>
+      <a href={href} className={combinedClasses} {...customProps}>
         {children}
       </a>
     );

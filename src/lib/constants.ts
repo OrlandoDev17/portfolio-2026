@@ -21,7 +21,7 @@ import {
 export const NAV_ITEMS: NavItem[] = [
   {
     label: "Inicio",
-    href: "#",
+    href: "#home",
     icon: "tabler:home",
   },
   {
@@ -177,6 +177,7 @@ export const EXPERIENCE_LIST: ExperienceItem[] = [
       { icon: "logos:tailwindcss-icon", name: "Tailwind" },
       { icon: "logos:react", name: "React" },
       { icon: "logos:typescript-icon", name: "TypeScript" },
+      { icon: "simple-icons:tanstack", name: "Tanstack Query" },
       { icon: "logos:supabase-icon", name: "Supabase" },
       { icon: "simple-icons:framer", name: "Framer Motion" },
     ],
@@ -487,8 +488,8 @@ export const STATS_LIST: StatItem[] = [
   },
   {
     label: "Proyectos",
-    value: 15,
-    prefix: "+",
+    value: 2,
+    prefix: "",
     color: "bg-accent-300 text-white",
     labelColor: "text-white",
     boxShadow: "rgba(104, 185, 41, 0.7)",

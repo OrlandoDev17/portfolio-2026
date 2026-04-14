@@ -15,7 +15,7 @@ import { SOCIAL_ITEMS, BRAND_LIST } from "@/lib/constants";
 
 export function HeroSection() {
   return (
-    <Section className="2xl:mt-6" id="#">
+    <Section className="pt-20 lg:pt-24 2xl:mt-6" id="home">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -33,9 +33,9 @@ export function HeroSection() {
           </motion.h1>
           <motion.h2
             variants={fadeRight}
-            className="text-3xl 2xl:text-4xl text-accent-400 font-semibold"
+            className="text-3xl 2xl:text-4xl text-accent-400 font-semibold max-w-lg"
           >
-            Desarrollador Frontend
+            Desarrollador de Software | Next.js & React Specialist
           </motion.h2>
           <motion.h2
             variants={fadeRight}
@@ -45,34 +45,33 @@ export function HeroSection() {
           </motion.h2>
           <motion.p
             variants={fadeRight}
-            className="text-sm 2xl:text-lg max-w-lg "
+            className="text-sm 2xl:text-lg max-w-lg"
           >
-            Desarrollador Frontend{" "}
+            Desarrollador web{" "}
             <span className="text-primary-500 font-medium">
-              apasionado por construir
+              apasionado por construir aplicaciones
             </span>{" "}
-            soluciones web que van más allá de lo visual. Mi enfoque es técnico
-            y funcional: transformar{" "}
-            <span className="text-primary-500 font-medium">
-              problemas complejos
-            </span>{" "}
-            en herramientas digitales{" "}
-            <span className="text-primary-500 font-medium">
-              robustas, intuitivas y eficientes
-            </span>{" "}
-            que generan un impacto real en la operatividad de los usuarios.
+            que resuelven problemas reales. Mi enfoque combina diseño intuitivo
+            con código sólido: investigo antes de actuar, documento antes de
+            programar y priorizo siempre la experiencia del usuario. Creo en
+            productos que no solo funcionan, sino que la gente{" "}
+            <span className="text-primary-500 font-medium">quiere usar</span>.
           </motion.p>
           <motion.aside
             variants={containerVariants}
             className="flex items-center gap-4 mt-4"
           >
             <motion.div variants={fadeUp} aria-hidden="true">
-              <Button href="#projects">
+              <Button href="#experience">
                 <Icon icon="tabler:folder" /> Ver Proyectos
               </Button>
             </motion.div>
             <motion.div variants={fadeUp} aria-hidden="true">
-              <Button variant="secondary">
+              <Button
+                href="/docs/Currículum Orlando López.pdf"
+                variant="secondary"
+                customProps={{ target: "_blank", rel: "noopener noreferrer" }}
+              >
                 <Icon icon="tabler:download" /> Descargar CV
               </Button>
             </motion.div>
@@ -111,8 +110,9 @@ export function HeroSection() {
       <ul className="flex items-center justify-between mt-4 2xl:mt-8 h-20 2xl:h-30 max-w-5xl 2xl:max-w-7xl  mx-auto w-full relative wrapper">
         {BRAND_LIST.map(({ name, icon }, index) => (
           <li
-            className="item"
+            className="item group/tooltip relative"
             key={name}
+            title={name}
             style={{
               animationDelay: `calc(30s / ${BRAND_LIST.length} * (${BRAND_LIST.length} - ${index}) * -1)`,
               left: "100%",
@@ -122,6 +122,9 @@ export function HeroSection() {
               icon={icon}
               className="size-10 sm:size-12 md:size-16 text-primary-400"
             />
+            <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs bg-dark text-white rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+              {name}
+            </span>
           </li>
         ))}
       </ul>

@@ -7,6 +7,7 @@ import { containerVariants } from "@/lib/animations";
 export function SkillsSection() {
   return (
     <Section
+      id="skills"
       title="Habilidades Técnicas"
       subtitle="Herramientas y tecnologías que utilizo en mi día a día"
     >

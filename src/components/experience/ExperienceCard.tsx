@@ -93,9 +93,13 @@ export function ExperienceCard({
             {experience.stack.map((tech) => (
               <div
                 key={tech.name}
-                className="p-3 bg-dark/5 rounded-2xl hover:bg-dark/95 text-dark/40 hover:text-white transition-all duration-300"
+                className="group/tooltip relative p-3 bg-dark/5 rounded-2xl hover:bg-dark/95 text-dark/40 hover:text-white transition-all duration-300"
+                title={tech.name}
               >
                 <Icon icon={tech.icon} className="w-6 h-6" />
+                <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs bg-dark text-white rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                  {tech.name}
+                </span>
               </div>
             ))}
           </footer>

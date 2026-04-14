@@ -1,21 +1,47 @@
-// Hooks
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
-// Constantes
 import { NAV_ITEMS } from "@/lib/constants";
-// Motion
 import { AnimatePresence, motion } from "motion/react";
 import { containerVariants, fadeDown, fadeRight } from "@/lib/animations";
-// Componentes
 import { Button } from "@/components/common/Button";
 import { Icon } from "@iconify/react";
 import { ContactModal } from "../contact/ContactModal";
 
 export function Header() {
-  // Estados
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<string | null>("#");
+  const [activeSection, setActiveSection] = useState<string>("#home");
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Detect scroll position for background effect and active section
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 20);
+
+      const sections = [
+        { id: "about", elem: document.getElementById("about") },
+        { id: "skills", elem: document.getElementById("skills") },
+        { id: "workflow", elem: document.getElementById("workflow") },
+        { id: "experience", elem: document.getElementById("experience") },
+        { id: "home", elem: document.getElementById("home") },
+      ];
+
+      for (const { id, elem } of sections) {
+        if (elem) {
+          const sectionTop = elem.offsetTop;
+          if (scrollY >= sectionTop - 120) {
+            setActiveSection("#" + id);
+            return;
+          }
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Prevent scroll when mobile menu is open
   useEffect(() => {
@@ -31,8 +57,19 @@ export function Header() {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  const handleSetActiveTab = (href: string) => {
-    setActiveTab(href);
+  const handleNavClick = (href: string) => {
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+    if (element) {
+      const headerHeight = 80;
+      const offset = 20;
+      const top =
+        element.getBoundingClientRect().top +
+        window.scrollY -
+        headerHeight -
+        offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
   };
 
   return (
@@ -40,9 +77,11 @@ export function Header() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="h-16 2xl:h-20 flex flex-col items-center justify-center"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
+      }`}
     >
-      <div className="flex items-center justify-between px-6 lg:px-0 max-w-6xl 2xl:max-w-7xl mx-auto w-full">
+      <div className="flex items-center justify-between px-6 lg:px-0 max-w-6xl 2xl:max-w-7xl mx-auto w-full h-16 2xl:h-20">
         <motion.picture variants={fadeRight}>
           <img
             className="w-12 2xl:w-16"
@@ -62,13 +101,20 @@ export function Header() {
                 <a
                   onMouseEnter={() => setHoveredTab(label)}
                   onMouseLeave={() => setHoveredTab(null)}
-                  onClick={() => handleSetActiveTab(href)}
-                  className={`2xl:text-lg relative py-2 px-3 ${activeTab === href ? "text-primary-500 font-medium" : ""}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(href);
+                  }}
+                  className={`2xl:text-lg relative py-2 px-3 transition-colors ${
+                    activeSection === href
+                      ? "text-primary-500 font-medium"
+                      : "text-dark hover:text-primary-500"
+                  }`}
                   href={href}
                 >
                   {label}
                   <AnimatePresence>
-                    {hoveredTab === label && (
+                    {activeSection === href && (
                       <motion.span
                         layoutId="nav-underline"
                         className="absolute -bottom-1.5 left-0 right-0 h-1 bg-primary-500 rounded-full"
@@ -120,7 +166,7 @@ export function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-white z-40 lg:hidden flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 bg-white z-40 lg:hidden flex flex-col items-center justify-center gap-8 top-16"
           >
             <nav>
               <ul className="flex flex-col items-center gap-6">
@@ -132,11 +178,16 @@ export function Header() {
                     transition={{ delay: index * 0.1 }}
                   >
                     <a
-                      onClick={() => {
-                        handleSetActiveTab(href);
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(href);
                         setIsMobileMenuOpen(false);
                       }}
-                      className={`text-2xl font-bold ${activeTab === href ? "text-primary-500" : "text-dark"}`}
+                      className={`text-2xl font-bold ${
+                        activeSection === href
+                          ? "text-primary-500"
+                          : "text-dark"
+                      }`}
                       href={href}
                     >
                       {label}
