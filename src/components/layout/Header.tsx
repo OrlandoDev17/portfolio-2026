@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import { NAV_ITEMS } from "@/lib/constants";
 import { AnimatePresence, motion } from "motion/react";
@@ -8,7 +7,6 @@ import { Icon } from "@iconify/react";
 import { ContactModal } from "../contact/ContactModal";
 
 export function Header() {
-  const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string>("#home");
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -99,8 +97,6 @@ export function Header() {
             {NAV_ITEMS.map(({ label, href }, index) => (
               <motion.li variants={fadeDown} key={label + index}>
                 <a
-                  onMouseEnter={() => setHoveredTab(label)}
-                  onMouseLeave={() => setHoveredTab(null)}
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(href);
