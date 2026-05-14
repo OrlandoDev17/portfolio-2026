@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/common/Button";
 import type { ExperienceItem } from "@/lib/types";
-import { fadeUp } from "@/lib/animations";
+import { fade, parentVariants } from "@blaze-motion/motion";
 
 interface ExperienceCardProps {
   experience: ExperienceItem;
@@ -15,7 +15,18 @@ export function ExperienceCard({
   onOpenDetails,
 }: ExperienceCardProps) {
   return (
-    <motion.div variants={fadeUp} aria-hidden="true">
+    <motion.div
+      variants={fade({
+        direction: "up",
+        distance: 50,
+        excludeDelay: true,
+        ease: "backOut",
+      })}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true, amount: 0.2 }}
+      aria-hidden="true"
+    >
       <article className="group relative flex flex-col lg:flex-row bg-white border-2 border-dark/5 rounded-[2.5rem] overflow-hidden hover:border-primary-500/30 transition-all duration-500 shadow-xl shadow-dark/5 hover:shadow-primary-500/10 min-h-[400px]">
         {/* Visual Header / Figure */}
         <header className="lg:w-2/5 relative overflow-hidden bg-linear-to-br from-primary-600/20 via-accent-400/10 to-primary-900/30">
@@ -46,7 +57,10 @@ export function ExperienceCard({
         </header>
 
         {/* Main Content Area */}
-        <section className="lg:w-3/5 p-4 2xl:p-12  flex flex-col justify-center gap-4 2xl:gap-6">
+        <motion.section
+          variants={parentVariants({ delayChildren: 0.1 })}
+          className="lg:w-3/5 p-4 2xl:p-12  flex flex-col justify-center gap-4 2xl:gap-6"
+        >
           <header className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-1">
               <h3 className="text-2xl 2xl:text-4xl font-black text-dark tracking-tighter leading-tight">
@@ -89,9 +103,18 @@ export function ExperienceCard({
           </p>
 
           {/* Tech Stack Summary */}
-          <footer className="flex flex-wrap gap-2">
+          <motion.footer
+            variants={parentVariants({ delayChildren: 0.05 })}
+            className="flex flex-wrap gap-2"
+          >
             {experience.stack.map((tech) => (
-              <div
+              <motion.div
+                variants={fade({
+                  direction: "up",
+                  distance: 10,
+                  excludeDelay: true,
+                  ease: "backOut",
+                })}
                 key={tech.name}
                 className="group/tooltip relative p-3 bg-dark/5 rounded-2xl hover:bg-dark/95 text-dark/40 hover:text-white transition-all duration-300"
                 title={tech.name}
@@ -100,9 +123,9 @@ export function ExperienceCard({
                 <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs bg-dark text-white rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                   {tech.name}
                 </span>
-              </div>
+              </motion.div>
             ))}
-          </footer>
+          </motion.footer>
 
           {/* CTA Button */}
           <footer className="mt-4">
@@ -122,7 +145,7 @@ export function ExperienceCard({
               <div className="absolute inset-0 bg-primary-600 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500 ease-out"></div>
             </Button>
           </footer>
-        </section>
+        </motion.section>
       </article>
     </motion.div>
   );

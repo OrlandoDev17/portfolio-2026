@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { NAV_ITEMS } from "@/lib/constants";
 import { AnimatePresence, motion } from "motion/react";
-import { containerVariants, fadeDown, fadeRight } from "@/lib/animations";
 import { Button } from "@/components/common/Button";
 import { Icon } from "@iconify/react";
 import { ContactModal } from "../contact/ContactModal";
+import { fade, parentVariants } from "@blaze-motion/motion";
 
 export function Header() {
   const [activeSection, setActiveSection] = useState<string>("#home");
@@ -72,15 +72,22 @@ export function Header() {
 
   return (
     <motion.header
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
+      variants={parentVariants({ delayChildren: 0.2 })}
+      initial="initial"
+      animate="animate"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
       <div className="flex items-center justify-between px-6 lg:px-0 max-w-6xl 2xl:max-w-7xl mx-auto w-full h-16 2xl:h-20">
-        <motion.picture variants={fadeRight}>
+        <motion.picture
+          variants={fade({
+            direction: "right",
+            distance: 80,
+            ease: "backOut",
+            excludeDelay: true,
+          })}
+        >
           <img
             className="w-12 2xl:w-16"
             src="/logo.svg"
@@ -89,13 +96,19 @@ export function Header() {
         </motion.picture>
         <nav className="hidden lg:flex">
           <motion.ul
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+            variants={parentVariants({ delayChildren: 0.2 })}
             className="flex items-center gap-2"
           >
             {NAV_ITEMS.map(({ label, href }, index) => (
-              <motion.li variants={fadeDown} key={label + index}>
+              <motion.li
+                variants={fade({
+                  direction: "up",
+                  distance: 20,
+                  ease: "backOut",
+                  excludeDelay: true,
+                })}
+                key={label + index}
+              >
                 <a
                   onClick={(e) => {
                     e.preventDefault();
@@ -128,7 +141,15 @@ export function Header() {
                 </a>
               </motion.li>
             ))}
-            <motion.li variants={fadeDown} className="pl-2">
+            <motion.li
+              variants={fade({
+                direction: "up",
+                distance: 20,
+                ease: "backOut",
+                excludeDelay: true,
+              })}
+              className="pl-2"
+            >
               <Button
                 onClick={() => setIsContactModalOpen(true)}
                 variant="dark"
@@ -142,7 +163,12 @@ export function Header() {
 
         {/* Hamburger Button */}
         <motion.button
-          variants={fadeRight}
+          variants={fade({
+            direction: "right",
+            distance: 20,
+            ease: "backOut",
+            excludeDelay: true,
+          })}
           onClick={toggleMobileMenu}
           className="lg:hidden p-2 text-primary-500 z-50"
           aria-label="Toggle Menu"
@@ -165,13 +191,21 @@ export function Header() {
             className="fixed inset-0 bg-white z-40 lg:hidden flex flex-col items-center justify-center gap-8 top-16"
           >
             <nav>
-              <ul className="flex flex-col items-center gap-6">
+              <motion.ul
+                variants={parentVariants({ delayChildren: 0.1 })}
+                initial="initial"
+                animate="animate"
+                className="flex flex-col items-center gap-6"
+              >
                 {NAV_ITEMS.map(({ label, href }, index) => (
                   <motion.li
                     key={label + index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    variants={fade({
+                      direction: "up",
+                      distance: 10,
+                      excludeDelay: true,
+                      ease: "backOut",
+                    })}
                   >
                     <a
                       onClick={(e) => {
@@ -190,12 +224,15 @@ export function Header() {
                     </a>
                   </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
             </nav>
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: NAV_ITEMS.length * 0.1 }}
+              variants={fade({
+                direction: "up",
+                distance: 20,
+                excludeDelay: true,
+                ease: "backOut",
+              })}
             >
               <Button
                 onClick={() => {

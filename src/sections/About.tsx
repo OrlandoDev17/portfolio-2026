@@ -2,27 +2,42 @@ import { Section } from "@/components/common/Section";
 import { StatCard } from "../components/about/StatsCard";
 import { STATS_LIST } from "../lib/constants";
 import { motion } from "motion/react";
-import { containerVariants, fadeLeft, fadeRight } from "@/lib/animations";
+import { fade, parentVariants, TextAnimate } from "@blaze-motion/motion";
 
 export function AboutSection() {
   return (
     <Section id="about">
       <div className="flex flex-col gap-6 mb-12 bg-gray-100 p-6 lg:p-12 rounded-3xl h-full">
         <header className="flex items-center gap-2">
-          <h2 className="text-3xl 2xl:text-4xl text-primary-500 font-bold">
-            Sobre Mí
-          </h2>
-          <span className="w-28 h-2 bg-accent-300 rounded-full"></span>
+          <TextAnimate
+            as="h2"
+            text="Sobre Mí"
+            className="text-3xl 2xl:text-4xl text-primary-500 font-bold"
+          />
+          <motion.span
+            variants={fade({ direction: "right", distance: 20, ease: "backOut" })}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.3 }}
+            className="w-28 h-2 bg-accent-300 rounded-full"
+          ></motion.span>
         </header>
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-12 w-full h-full">
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            variants={parentVariants({ delayChildren: 0.1 })}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.3 }}
             className="flex flex-col gap-5 lg:max-w-[50%] [&>p]:text-pretty [&>p]:text-lg"
           >
-            <motion.p variants={fadeRight}>
+            <motion.p
+              variants={fade({
+                direction: "right",
+                distance: 30,
+                excludeDelay: true,
+                ease: "backOut",
+              })}
+            >
               Mi enfoque parte de una premisa clara:{" "}
               <span className="text-accent-400 font-medium">
                 la escalabilidad nace de un código limpio
@@ -46,7 +61,14 @@ export function AboutSection() {
               un manejo de estados eficiente con{" "}
               <span className="text-primary-500 font-medium">React Hooks</span>.
             </motion.p>
-            <motion.p variants={fadeRight}>
+            <motion.p
+              variants={fade({
+                direction: "right",
+                distance: 30,
+                excludeDelay: true,
+                ease: "backOut",
+              })}
+            >
               Entiendo el desarrollo como un sistema resiliente; por ello,
               gestiono la comunicación con el backend mediante{" "}
               <span className="text-primary-500 font-medium">API REST</span> y
@@ -67,7 +89,14 @@ export function AboutSection() {
               </span>{" "}
               y optimizar procesos operativos.
             </motion.p>
-            <motion.p variants={fadeRight}>
+            <motion.p
+              variants={fade({
+                direction: "right",
+                distance: 30,
+                excludeDelay: true,
+                ease: "backOut",
+              })}
+            >
               Ante cualquier error, mi flujo es metódico: utilizo las{" "}
               <span className="text-primary-500 font-medium">DevTools</span>{" "}
               para trazar el fallo en el{" "}
@@ -86,21 +115,31 @@ export function AboutSection() {
             </motion.p>
           </motion.div>
           <motion.aside
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            variants={parentVariants({ delayChildren: 0.1 })}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.3 }}
             className="grid grid-cols-2 gap-4 items-center w-full lg:flex lg:flex-row lg:max-w-[42%] ml-auto"
           >
             <motion.div
-              variants={fadeLeft}
+              variants={fade({
+                direction: "left",
+                distance: 30,
+                excludeDelay: true,
+                ease: "backOut",
+              })}
               className="flex flex-col gap-4 w-full"
             >
               <StatCard {...STATS_LIST[0]} />
               <StatCard {...STATS_LIST[2]} />
             </motion.div>
             <motion.div
-              variants={fadeLeft}
+              variants={fade({
+                direction: "left",
+                distance: 30,
+                excludeDelay: true,
+                ease: "backOut",
+              })}
               className="flex flex-col gap-4 w-full lg:mt-16"
             >
               <StatCard {...STATS_LIST[1]} />

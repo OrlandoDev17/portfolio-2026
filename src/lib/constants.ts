@@ -8,7 +8,7 @@ import type {
   StatItem,
 } from "./types";
 // Animaciones
-import { fadeLeft, fadeRight, fadeUp } from "./animations";
+import { fade } from "@blaze-motion/motion";
 // Iconos
 import {
   Git,
@@ -51,19 +51,19 @@ export const SOCIAL_ITEMS: SocialLink[] = [
     id: "github",
     href: "https://github.com/OrlandoDev17",
     icon: "simple-icons:github",
-    animation: fadeRight,
+    animation: fade({ direction: "right", distance: 20 }),
   },
   {
     id: "linkedin",
     href: "https://www.linkedin.com/in/orlando-l%C3%B3pez1707/",
     icon: "simple-icons:linkedin",
-    animation: fadeUp,
+    animation: fade({ direction: "up", distance: 20 }),
   },
   {
     id: "whatsapp",
     href: "https://wa.me/+584242860846",
     icon: "simple-icons:whatsapp",
-    animation: fadeLeft,
+    animation: fade({ direction: "left", distance: 20 }),
   },
 ];
 
@@ -368,7 +368,7 @@ export const SKILLS_LIST: SkillItem[] = [
     bigBrand: ReactDark,
     color: "bg-linear-to-br from-primary-200 to-primary-500 text-primary-700",
     shadow: "rgba(122, 92, 250, 0.7)",
-    variants: fadeRight,
+    variants: fade({ direction: "right", distance: 30 }),
   },
   {
     title: "Desarrollo Backend",
@@ -403,7 +403,7 @@ export const SKILLS_LIST: SkillItem[] = [
     bigBrand: Nodejs,
     color: "bg-linear-to-br from-accent-200 to-accent-500 text-accent-700",
     shadow: "rgba(104, 185, 41, 0.7)",
-    variants: fadeUp,
+    variants: fade({ direction: "up", distance: 30 }),
   },
   {
     title: "Herramientas de Desarrollo",
@@ -438,7 +438,7 @@ export const SKILLS_LIST: SkillItem[] = [
     bigBrand: Git,
     color: "bg-linear-to-br from-orange-200 to-orange-500 text-orange-700",
     shadow: "rgba(237, 137, 54, 0.7)",
-    variants: fadeUp,
+    variants: fade({ direction: "up", distance: 30 }),
   },
   {
     title: "Conocimientos Clave",
@@ -473,7 +473,7 @@ export const SKILLS_LIST: SkillItem[] = [
     bigBrand: TypeScript,
     color: "bg-linear-to-br from-blue-200 to-blue-500 text-blue-700",
     shadow: "rgba(59, 130, 246, 0.7)",
-    variants: fadeLeft,
+    variants: fade({ direction: "left", distance: 30 }),
   },
 ];
 

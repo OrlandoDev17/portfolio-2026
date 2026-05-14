@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
 import { useEffect } from "react";
+import { fade } from "@blaze-motion/motion";
 
 interface ModalProps {
   isOpen: boolean;
@@ -28,19 +29,24 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
           {/* Backdrop */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            variants={fade({ direction: "none", distance: 0 })}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             onClick={onClose}
             className="absolute inset-0 bg-dark/40 backdrop-blur-md"
           />
 
           {/* Modal Content */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            variants={fade({
+              direction: "up",
+              distance: 20,
+              ease: "backOut",
+            })}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white rounded-3xl shadow-2xl border border-dark/5 flex flex-col"
           >
             {/* Header */}

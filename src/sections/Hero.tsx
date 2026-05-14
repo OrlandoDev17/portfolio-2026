@@ -4,47 +4,71 @@ import { Button } from "@/components/common/Button";
 import { Icon } from "@iconify/react";
 // Motion
 import { motion } from "motion/react";
-import {
-  containerVariants,
-  fadeLeft,
-  fadeRight,
-  fadeUp,
-} from "@/lib/animations";
 // Constantes
 import { SOCIAL_ITEMS, BRAND_LIST } from "@/lib/constants";
+import {
+  fade,
+  Marquee,
+  parentVariants,
+  TextAnimate,
+} from "@blaze-motion/motion";
 
 export function HeroSection() {
   return (
     <Section className="pt-20 lg:pt-24 2xl:mt-6" id="home">
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
+        variants={parentVariants({ delayChildren: 0.2, startDelay: 0.5 })}
+        initial="initial"
+        whileInView="animate"
         viewport={{ once: true }}
         className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between"
       >
         <div className="flex flex-col gap-3">
-          <motion.h1
-            variants={fadeRight}
-            className="text-6xl 2xl:text-7xl font-black"
-          >
-            Hola, Soy <br />{" "}
-            <span className="text-primary-500">Orlando López</span>
-          </motion.h1>
+          <h1 className="text-6xl 2xl:text-7xl font-black flex flex-col gap-2">
+            <TextAnimate
+              as="span"
+              text="Hola, Soy"
+              by="letter"
+              duration={0.5}
+            />
+            <TextAnimate
+              as="span"
+              text="Orlando López"
+              by="letter"
+              duration={0.2}
+              className="text-primary-500"
+              startDelay={0.5}
+            />
+          </h1>
           <motion.h2
-            variants={fadeRight}
+            variants={fade({
+              direction: "right",
+              distance: 50,
+              ease: "backOut",
+              excludeDelay: true,
+            })}
             className="text-3xl 2xl:text-4xl text-accent-400 font-semibold max-w-lg"
           >
             Desarrollador de Software | Next.js & React Specialist
           </motion.h2>
           <motion.h2
-            variants={fadeRight}
+            variants={fade({
+              direction: "right",
+              distance: 50,
+              ease: "backOut",
+              excludeDelay: true,
+            })}
             className="text-xl 2xl:text-2xl text-primary-500 font-bold"
           >
             Técnico Superior Universitario en Informática
           </motion.h2>
           <motion.p
-            variants={fadeRight}
+            variants={fade({
+              direction: "right",
+              distance: 50,
+              ease: "backOut",
+              excludeDelay: true,
+            })}
             className="text-sm 2xl:text-lg max-w-lg"
           >
             Desarrollador web{" "}
@@ -58,15 +82,31 @@ export function HeroSection() {
             <span className="text-primary-500 font-medium">quiere usar</span>.
           </motion.p>
           <motion.aside
-            variants={containerVariants}
+            variants={parentVariants({ delayChildren: 0.1 })}
             className="flex items-center gap-4 mt-4"
           >
-            <motion.div variants={fadeUp} aria-hidden="true">
+            <motion.div
+              variants={fade({
+                direction: "up",
+                distance: 30,
+                excludeDelay: true,
+                ease: "backOut",
+              })}
+              aria-hidden="true"
+            >
               <Button href="#experience">
                 <Icon icon="tabler:folder" /> Ver Proyectos
               </Button>
             </motion.div>
-            <motion.div variants={fadeUp} aria-hidden="true">
+            <motion.div
+              variants={fade({
+                direction: "up",
+                distance: 30,
+                excludeDelay: true,
+                ease: "backOut",
+              })}
+              aria-hidden="true"
+            >
               <Button
                 href="/docs/Currículum Orlando López.pdf"
                 variant="secondary"
@@ -77,11 +117,19 @@ export function HeroSection() {
             </motion.div>
           </motion.aside>
           <motion.ul
-            variants={containerVariants}
+            variants={parentVariants({ delayChildren: 0.1 })}
             className="flex items-center gap-4 mt-4"
           >
-            {SOCIAL_ITEMS.map(({ id, icon, href, animation }) => (
-              <motion.li variants={animation} key={id}>
+            {SOCIAL_ITEMS.map(({ id, icon, href }) => (
+              <motion.li
+                variants={fade({
+                  direction: "up",
+                  distance: 20,
+                  excludeDelay: true,
+                  ease: "backOut",
+                })}
+                key={id}
+              >
                 <a
                   className="flex items-center justify-center"
                   href={href}
@@ -98,7 +146,12 @@ export function HeroSection() {
         </div>
         <motion.picture
           className="flex items-center justify-center lg:items-end lg:justify-end"
-          variants={fadeLeft}
+          variants={fade({
+            direction: "left",
+            distance: 80,
+            ease: "backOut",
+            excludeDelay: true,
+          })}
         >
           <img
             className="w-full lg:w-[80%] 2xl:w-full"
@@ -107,17 +160,13 @@ export function HeroSection() {
           />
         </motion.picture>
       </motion.div>
-      <ul className="flex items-center justify-between mt-4 2xl:mt-8 h-20 2xl:h-30 max-w-5xl 2xl:max-w-7xl  mx-auto w-full relative wrapper">
-        {BRAND_LIST.map(({ name, icon }, index) => (
-          <li
-            className="item group/tooltip relative"
-            key={name}
-            title={name}
-            style={{
-              animationDelay: `calc(30s / ${BRAND_LIST.length} * (${BRAND_LIST.length} - ${index}) * -1)`,
-              left: "100%",
-            }}
-          >
+      <Marquee
+        key={"marquee"}
+        pauseOnHover={false}
+        className="max-w-full mx-auto pt-12 pb-4"
+      >
+        {BRAND_LIST.map(({ name, icon }) => (
+          <div className="relative" key={name} title={name}>
             <Icon
               icon={icon}
               className="size-10 sm:size-12 md:size-16 text-primary-400"
@@ -125,9 +174,9 @@ export function HeroSection() {
             <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs bg-dark text-white rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
               {name}
             </span>
-          </li>
+          </div>
         ))}
-      </ul>
+      </Marquee>
     </Section>
   );
 }
