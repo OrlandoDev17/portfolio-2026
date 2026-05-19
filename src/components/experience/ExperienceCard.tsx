@@ -45,13 +45,7 @@ export function ExperienceCard({
             )}
           </picture>
 
-          {/* Periodo Semántico */}
-          <div className="absolute top-6 left-6 flex flex-col gap-2">
-            <span className="bg-accent-500 text-white text-xs px-3 py-1 rounded-full font-medium uppercase tracking-wider shadow-lg flex items-center gap-1.5 w-fit">
-              <Icon icon="lucide:award" className="w-3 h-3" />
-              Primer Sistema Implementado
-            </span>
-          </div>
+          
 
           <div className="absolute inset-0 bg-linear-to-t from-white/20 to-transparent lg:hidden"></div>
         </header>
