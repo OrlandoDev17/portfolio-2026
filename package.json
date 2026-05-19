@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@blaze-motion/motion": "^1.4.0",
+    "@blaze-motion/motion": "^1.5.1",
     "@fontsource-variable/dm-sans": "^5.2.8",
     "@fontsource-variable/space-grotesk": "^5.2.10",
     "@iconify/react": "^6.0.2",
