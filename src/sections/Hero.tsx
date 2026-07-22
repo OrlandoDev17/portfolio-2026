@@ -108,7 +108,7 @@ export function HeroSection() {
               aria-hidden="true"
             >
               <Button
-                href="/docs/Currículum Orlando López.pdf"
+                href="/docs/orlando-lopez-cv.pdf"
                 variant="secondary"
                 customProps={{ target: "_blank", rel: "noopener noreferrer" }}
               >
